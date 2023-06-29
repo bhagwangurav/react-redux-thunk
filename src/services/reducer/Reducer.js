@@ -3,27 +3,26 @@ import thunk from "redux-thunk";
 import { combineReducers } from "redux";
 const initialState = {
   allProduct: [],
-  selectedProduct: []
+  selectedProduct: [],
 };
 const addToCart = (state = initialState, action) => {
-  console.log(state, action);
   switch (action.type) {
     case "ADD_TO_CART":
       return {
         ...state,
-        selectedProduct: [...state.selectedProduct, action.payload]
+        selectedProduct: [...state.selectedProduct, action.payload],
       };
     case "REMOVE_FROM_CART":
       return {
         ...state,
         selectedProduct: state.selectedProduct.filter(
           (item) => item.id !== action.payload
-        )
+        ),
       };
     case "SET_PRODUCT":
       return {
         ...state,
-        allProduct: action.payload
+        allProduct: action.payload,
       };
     default:
       return state;
@@ -31,7 +30,7 @@ const addToCart = (state = initialState, action) => {
 };
 
 const rootReducer = combineReducers({
-  addToCart
+  addToCart,
 });
 
 const store = createStore(rootReducer, applyMiddleware(thunk));

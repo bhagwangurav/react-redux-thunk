@@ -4,7 +4,6 @@ import { addToCart, getProductforCart } from "../services/actions/Action";
 function Home() {
   let dispatch = useDispatch();
   const productData = useSelector((state) => state.addToCart.allProduct);
-  console.log(productData);
   const [products, setProducts] = useState();
   useEffect(() => {
     dispatch(getProductforCart());

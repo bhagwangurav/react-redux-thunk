@@ -2,7 +2,6 @@ import { useSelector, useDispatch } from "react-redux";
 import { removeFromCart } from "../services/actions/Action";
 function Cart() {
   let selectedProduct = useSelector((state) => state.addToCart.selectedProduct);
-  console.log("rrrrr", selectedProduct);
   let dispatch = useDispatch();
   return (
     <>
